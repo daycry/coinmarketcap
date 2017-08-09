@@ -1,10 +1,4 @@
 <?php
-/*
- * (c) Thiago Régis <tregismoreira@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
 
 namespace Daycry\CoinMarketCap;
 use Httpful\Request;
