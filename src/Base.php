@@ -22,7 +22,7 @@ class Base
      */
     public function getTicker($params = array())
     {
-        return $this->_buildRequest('ticker', $params);
+        return $this->_buildRequest('ticker/', $params);
     }
 
     /**
@@ -41,7 +41,7 @@ class Base
      */
     public function getGlobalData($params = array())
     {
-        return $this->_buildRequest('global', $params);
+        return $this->_buildRequest('global/', $params);
     }
 
     /**
@@ -65,11 +65,13 @@ class Base
     {
         try
         {
+            $url = (count( $params ) > 0 ) ? $url . '?' . http_build_query($params) : $url;
             $response = Request::get( $url . '?' . http_build_query($params) )->send();
             if( !$response->body )
             {
                 throw new Exception('Error in petition');
             }
+
             return $response->body;
             
         } catch (Exception $ex) {
