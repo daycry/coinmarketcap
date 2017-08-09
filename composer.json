@@ -13,10 +13,9 @@
             "email": "daycry9@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Daycry\\CoinMarketCap\\" : "coinmarket/src/"
+            "Daycry\\" : "src/"
         }
     }
 }
