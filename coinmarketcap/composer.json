@@ -1,0 +1,23 @@
+{
+    "name": "daycry/coinmarketcap",
+    "description": "PHP wrapper class for CoinMarketCap.",
+    "type": "library",
+    "require": {
+        "php": ">=5.3.0",
+        "nategood/httpful": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daycry",
+            "email": "daycry9@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Daycry\\CoinMarketCap\\" : "src/"
+        }
+    }
+}
+
