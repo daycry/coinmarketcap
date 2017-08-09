@@ -1,6 +1,6 @@
 <?php
 
-namespace Daycry\CoinMarketCap;
+namespace CoinMarketCap;
 use Httpful\Request;
 
 class Base
