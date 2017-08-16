@@ -6,7 +6,7 @@ PHP wrapper class for CoinMarketCap, built on top of [Guzzle](https://github.com
 
 * PHP 5.3+
 * [Composer](https://getcomposer.org/)
-* [Guzzle](https://github.com/guzzle/guzzle) (downloaded automatically by Composer)
+* [HTTPFUL](https://github.com/nategood/httpful) (downloaded automatically by Composer)
 
 ## Installation
 
