@@ -1,6 +1,6 @@
 # CoinMarketCap PHP Wrapper
 
-PHP wrapper class for CoinMarketCap, built on top of [Guzzle](https://github.com/guzzle/guzzle).
+PHP wrapper class for CoinMarketCap, built on top of [HttpFull](https://github.com/nategood/httpful).
 
 ## Requirements
 
