@@ -4,7 +4,7 @@ PHP wrapper class for CoinMarketCap, built on top of [HttpFull](https://github.c
 
 ## Requirements
 
-* PHP 5.3+
+* PHP 7
 * [Composer](https://getcomposer.org/)
 * [HTTPFUL](https://github.com/nategood/httpful) (downloaded automatically by Composer)
 
@@ -24,14 +24,14 @@ use CoinMarketCap\Base;
 $coinmarketcap = new Base();
 
 // Get ticker
-$coinmarketcap->getTicker();
+$coinmarketcap->getTickers();
 
 // Get ticker by coin
 $coin = 'bitcoin';
-$coinmarketcap->getTickerByCoin($coin);
+$coinmarketcap->getTicker($coin);
 
 // Get global data
-$coinmarketcap->getGlobalData();
+$coinmarketcap->getGlobal();
 ```
 
 See the [API documentation](https://coinmarketcap.com/api/) for more information about the endpoints and responses.
