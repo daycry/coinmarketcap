@@ -1,6 +1,6 @@
 {
     "name": "daycry/coinmarketcap",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "PHP wrapper class for CoinMarketCap.",
     "type": "library",
     "require": {
