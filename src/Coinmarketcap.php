@@ -3,32 +3,46 @@
 namespace CoinMarketCap;
 use Httpful\Request;
 
-class Base
+class Coinmarketcap
 {
     /**
      * @var string
      */
-    private $base_url = 'https://api.coinmarketcap.com/%s/';
-    private $version = "v2";
+    private $base_url = 'https://pro-api.coinmarketcap.com/%s/';
+    private $version = 'v1';
+    private $key = null;
 
-    function __construct( $version = 'v2' )
+    function __construct( $key )
     {
-        $this->version = $version;
+        if( $key )
+        {
+            $this->key = $key;
+        }
+        
         $this->base_url = \sprintf( $this->base_url, $this->version );
-
         $template = Request::init()->sendsJson()->expectsJson();
         Request::ini($template);
     }
     
+    public function setVersion( $version = 'v1' )
+    {
+        $this->version = $version;
+    }
+
+    public function setKey( $key )
+    {
+        $this->key = $key;
+    }
+
     /**
      * @param null $limit
      * @param null $start
      * @param null $convert
      * @return array
      */
-    public function getTickers( $limit = null, $start = null, $convert = null )
+    public function getLatest( $limit, $start, $convert )
     {
-        return $this->_buildRequest( 'ticker/', array( 'limit' => $limit, 'start' => $start, 'convert' => $convert ) );
+        return $this->_buildRequest( 'cryptocurrency/listings/latest', array( 'limit' => $limit, 'start' => $start, 'convert' => $convert ) );
     }
 
     /**
@@ -47,7 +61,7 @@ class Base
      */
     public function getGlobal( $convert = null )
     {
-        return $this->_buildRequest('global/', array( 'convert' => $convert ) );
+        return $this->_buildRequest('global-metrics/quotes/latest', array( 'convert' => $convert ) );
     }
 
     /**
@@ -117,8 +131,9 @@ class Base
      */
     private function _request($url, $params = array())
     {
-        $url = (count( $params ) > 0 ) ? $url . '?' . http_build_query($params) : $url;
-        $response = Request::get( $url . '?' . http_build_query($params) )->send();
+        $url = (count( $params ) > 0 ) ? $url . '?' . http_build_query( $params ) : $url;
+        $response = Request::get( $url )->addHeader( 'X-CMC_PRO_API_KEY', $this->key )->send();
+
         if( !$response->body )
         {
             throw new Exception('Error in petition');
