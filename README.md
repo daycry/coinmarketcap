@@ -21,17 +21,13 @@ require __DIR__ . '/vendor/autoload.php';
 
 use CoinMarketCap\Base;
 
-$coinmarketcap = new Base();
+$coinmarketcap = new Coinmarketcap( 'key' );
 
 // Get ticker
-$coinmarketcap->getTickers();
-
-// Get ticker by coin
-$coin = 'bitcoin';
-$coinmarketcap->getTicker($coin);
+$coinmarketcap->getLatest();
 
 // Get global data
 $coinmarketcap->getGlobal();
 ```
 
-See the [API documentation](https://coinmarketcap.com/api/) for more information about the endpoints and responses.
+See the [API documentation](https://coinmarketcap.com/api/documentation/v1) for more information about the endpoints and responses.
